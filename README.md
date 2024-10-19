@@ -1,71 +1,37 @@
-# vulcheck README
+# Vulcheck
 
-This is the README for your extension "vulcheck". After writing up a brief description, we recommend including the following sections.
+El objetivo de esta extensión para Visual Studio Code es el análisis de código de archivos TypeScript para detectar vulnerabilidades que puedan generar riesgos de seguridad en las aplicaciones donde sean utilizados.
 
-## Features
+## Requisitos previos
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Para poder utilizar esta extensión, hay algunas herramientas necesarias para la ejecución de la extensión, por lo que deben ser instaladas si se quiere utilizar la extensión:
 
-For example if there is an image subfolder under your extension project workspace:
+* [Visual Studio Code](https://code.visualstudio.com/)
+* [Node.js](https://nodejs.org/en/)
+* [Git](https://git-scm.com/)
 
-\!\[feature X\]\(images/feature-x.png\)
+Además, se recomienda instalar [Yeoman](https://yeoman.io/) y [VS Code Extension Generator](https://www.npmjs.com/package/generator-code) para tener un mejor control sobre el desarrollo de la extensión.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Configuración de Groq
 
-## Requirements
+Esta extensión utiliza un modelo de lenguaje proporcionado por Groq, así que es requerido crear una cuenta para poder utilizar la extensión. A continuación se explicará el procedimiento para obtener una API key que será utlizada para enviar prompts y recibir respuestas de un modelo determinado.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+* Visita el sitio web de [Groq](https://console.groq.com/login) y registrate con un correo electrónico.
+* Se enviará un correo electrónico de confirmación (no olvides revisar la carpeta de SPAM).
+* Después de iniciar sesión, localiza la opción de `API Keys` y haz clic en ella (puede que se requiera una verificación con CAPTCHA).
+* Haz clic en el botón `Create API Key` y en el modal que aparece, escribe un nombre para distinguirla.
+* Después de esto, el modal cambiará y se mostrará la API key. Haz clic en el botón de copiar antes de cerrar el modal, ya que una vez que se cierre el modal, no se podrá copiar la API key.
 
-## Extension Settings
+## Configuración de la extensión
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+Una vez que se han cumplido todos los requerimientos previos, se puede proceder con la configuración y ejecución de la extensión.
 
-For example:
+* Descarga el contenido de este repositorio, ya sea clonando este repositorio o descargando el comprimido y extrayendo los archivos.
+* A conitnuación, abre un terminal en la ubicación de los archivos y ejecuta el comando `npm i` para instalar las dependencias requeridas.
+* Abre Visual Studio Code con el proyecto de la extensión y crea un archivo `.env` en el directorio raíz para almacenar la variable de entorno con la API key de Groq, la cual posee el siguiente formato: `GROQ_API_KEY=Tu-API-Key`. Reemplaza `Tu-API-Key` con la que copiaste del dashboard de Groq.
+* Abre el archivo `extension.ts` que se encuentra dentro de la carpeta `src` y ejecuta la extensión con la tecla F5.
+* A continuación, se abrirá otra ventana de Visual Studio Code. Para probar la extensión, abre cualquier archivo y/o proyecto que tenga código TypeScript (es decir, archivos de tipo .ts o .tsx).
+* Cuando el archivo esté abierto, haz clic derecho en el editor de código y selecciona la opción `Analyze Code`.
+* La extensión ejecutará un análisis en dicho archivo y retornará las vulnerabilidades que logre detectar (ten en cuenta que el uso de la extensión requiere de una conexión a Internet estable, ya que debe enviar el prompt al modelo de Groq y recibir su respuesta).
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Con este proceso, la extensión es funcional y se puede utilizar sin ningún impedimento y/o dificultad.

@@ -1,8 +1,8 @@
 {
   "name": "vulcheck",
   "displayName": "vulcheck",
-  "description": "",
-  "version": "0.0.1",
+  "description": "Get the main vulnerabilities of your code after analyzing it based on the OWASP 2023 list",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.92.0"
   },
